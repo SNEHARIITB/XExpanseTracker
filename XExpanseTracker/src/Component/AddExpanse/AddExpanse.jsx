@@ -84,19 +84,28 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
         onChange={(e) => setPrice(e.target.value)}
       />
 
-      <TextField
-        select
-        name="category"
-        label="Category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        fullWidth
-        margin="normal"
-      >
-        <MenuItem value="Food">Food</MenuItem>
-        <MenuItem value="Travel">Travel</MenuItem>
-        <MenuItem value="Entertainment">Entertainment</MenuItem>
-      </TextField>
+<FormControl fullWidth margin="normal">
+  <InputLabel htmlFor="category">Category</InputLabel>
+  <select
+    name="category"
+    id="category"
+    value={category}
+    onChange={(e) => setCategory(e.target.value)}
+    style={{
+      padding: "10px",
+      borderRadius: "4px",
+      border: "1px solid rgba(0, 0, 0, 0.23)",
+      fontSize: "16px",
+      marginTop: "8px",
+    }}
+  >
+    <option value="">Select Category</option>
+    <option value="Food">Food</option>
+    <option value="Travel">Travel</option>
+    <option value="Entertainment">Entertainment</option>
+  </select>
+</FormControl>
+
 
 
       <TextField

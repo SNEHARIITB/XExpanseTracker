@@ -64,6 +64,7 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
       </Typography>
 
       <TextField
+        name="Title"
         label="Title"
         variant="outlined"
         fullWidth
@@ -73,6 +74,7 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
       />
 
       <TextField
+        name="Price"
         label="Price"
         variant="outlined"
         fullWidth
@@ -85,6 +87,7 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
       <FormControl fullWidth margin="normal">
         <InputLabel>Category</InputLabel>
         <Select
+          name="Category"
           value={category}
           label="Category"
           onChange={(e) => setCategory(e.target.value)}
@@ -96,6 +99,7 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
       </FormControl>
 
       <TextField
+        name="Date"
         label="Date"
         type="date"
         fullWidth

@@ -15,7 +15,7 @@ export default function Expanse({sendNetBalance,updateexpense}){
     const [walletBalance, setWalletBalance] = useState(0);
     const [balanceopen, setBalanceOpen] = useState(false);
     const [expensesbalance, setExpensesBalance] = useState(0);
-    const [netBalance,setNetBalance] = useState(0);
+    const [netBalance,setNetBalance] = useState(5000);
     
     const handleAddExpanse = () => {
         setExpenseOpen(true);

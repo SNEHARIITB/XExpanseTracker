@@ -66,7 +66,7 @@ export default function Expanse({sendNetBalance,updateexpense}){
     return(
     <>
     <Container fixed className={styles.trackercontainer}>
-        <h1 className={styles.expansetag}>Expanse Tracker</h1>
+        <h1 className={styles.expansetag}>Expense Tracker</h1>
         <Box >
             <Grid container spacing={4} className={styles.trackerbox}>
                 <Grid size={{xs:12, md:4}} className={styles.griditem}>
@@ -75,7 +75,7 @@ export default function Expanse({sendNetBalance,updateexpense}){
                         <Typography gutterBottom>
                             Wallet Balance: <span className={styles.income}>{netBalance}</span>
                         </Typography>
-                        <Button variant="contained" className={styles.incomeBtn} onClick={handleAddBalance}>
+                        <Button type="button" variant="contained" className={styles.incomeBtn} onClick={handleAddBalance}>
                         + Add Income
                         </Button>
                         </CardContent>
@@ -88,7 +88,7 @@ export default function Expanse({sendNetBalance,updateexpense}){
                         <Typography gutterBottom>
                             Expenses: <span className={styles.expense}>{expensesbalance}</span>
                         </Typography>
-                        <Button variant="contained" className={styles.expenseBtn}  onClick={handleAddExpanse}>
+                        <Button type="button" variant="contained" className={styles.expenseBtn}  onClick={handleAddExpanse}>
                             + Add Expense
                         </Button>
                         </CardContent>

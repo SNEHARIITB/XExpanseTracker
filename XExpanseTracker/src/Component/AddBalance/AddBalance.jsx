@@ -59,11 +59,12 @@ const AddBalanceForm = ({onUpdate}) => {
         margin="normal"
         value={balance}
         inputProps={{ min: 0 }}
+        placeholder = "Income Amount"
         onChange={(e) => setBalance(e.target.value)}
       />
 
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
+        <Button type="submit" variant="contained" color="primary" onClick={handleSubmit}>
           Add Balance
         </Button>
         <Button

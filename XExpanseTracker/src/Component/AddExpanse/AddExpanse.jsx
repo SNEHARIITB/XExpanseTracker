@@ -106,7 +106,7 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
       />
 
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
+        <Button type="submit" variant="contained" color="primary" onClick={handleSubmit}>
           Add Expense
         </Button>
         <Button

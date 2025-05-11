@@ -4,15 +4,14 @@ import {
   Card,
   CardContent,
   Typography,
-  IconButton,
   Pagination,
   Stack,
 } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Cancel";
-import EditIcon from "@mui/icons-material/Edit";
-import WifiIcon from "@mui/icons-material/Wifi";
-import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+// import DeleteIcon from "@mui/icons-material/Cancel";
+// import EditIcon from "@mui/icons-material/Edit";
+// import WifiIcon from "@mui/icons-material/Wifi";
+// import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
+// import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { Button, Modal,Grid } from "@mui/material";
 import styles from "./RecentTransactions.module.css";
 import EditExpenseForm from "../EditExpense/EditExpense";
@@ -81,18 +80,20 @@ const RecentTransactions = ({netBalance,sendupdateexpense}) => {
                             </Box>
                             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                                 <Typography color="orange">₹{item.price}</Typography>
-                                <IconButton color="error">
-                                <DeleteIcon onClick={() => {
+
+                                    <Button variant="contained" size="small" color="primary" onClick={() => {
                                         setDeleteExpenseId(item.id);                                       
-                                    }}/>
-                                </IconButton>
-                                <IconButton color="warning">
-                                <EditIcon    onClick={() => {
+                                    }}>
+                                        Delete
+                                    </Button>
+
+
+                                <Button    onClick={() => {
                                         setEditExpenseId(item.id);
                                         setEditExpenseOpen(true);
                                     }}
-                                    />
-                                </IconButton>
+                                    >Edit</Button>
+
                             </Box>
                             </Card>
                         ))}

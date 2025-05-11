@@ -34,7 +34,7 @@ const getCategoryData = (expenses) => {
   return Object.entries(categoryMap).map(([name, value]) => ({ name, value }));
 };
 
-const TopExpensesBarChart = () => {
+const TopExpensesBarChart = ({netBalance}) => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const TopExpensesBarChart = () => {
         console.error("Error parsing localStorage data:", err);
       }
     }
-  }, []);
+  }, [netBalance]);
   return (
     <Box sx={{height: "100%"}}>
       <ResponsiveContainer width="100%" height="100%">

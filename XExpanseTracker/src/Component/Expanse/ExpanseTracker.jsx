@@ -9,12 +9,13 @@ import PieChart from "../PieChart/PieChart";
 import AddExpenseForm from "../AddExpanse/AddExpanse";
 import AddBalanceForm from "../AddBalance/AddBalance";
 
-export default function Expanse(){
+export default function Expanse({sendNetBalance,updateexpense}){
 
     const [expenseopen, setExpenseOpen] = useState(false);
     const [walletBalance, setWalletBalance] = useState(0);
     const [balanceopen, setBalanceOpen] = useState(false);
     const [expensesbalance, setExpensesBalance] = useState(0);
+    const [netBalance,setNetBalance] = useState(0);
     
     const handleAddExpanse = () => {
         setExpenseOpen(true);
@@ -47,13 +48,20 @@ export default function Expanse(){
               return sum + price;
             }, 0);
             setExpensesBalance(total);
+            //setWalletBalance(walletBalance-total);
           } catch (err) {
             console.error("Error parsing localStorage data:", err);
           }
         }
-      }, [expenseopen]);
+      }, [expenseopen,updateexpense]);
 
-console.log("expensesbalance:", expensesbalance)
+    useEffect(() => {
+      setNetBalance(walletBalance - expensesbalance);
+    }, [walletBalance, expensesbalance]);
+
+    useEffect(() => {
+      sendNetBalance(netBalance);
+    },[netBalance]);
 
     return(
     <>
@@ -65,7 +73,7 @@ console.log("expensesbalance:", expensesbalance)
                     <Card className={styles.card}>
                         <CardContent>
                         <Typography gutterBottom>
-                            Wallet Balance: <span className={styles.income}>{walletBalance}</span>
+                            Wallet Balance: <span className={styles.income}>{netBalance}</span>
                         </Typography>
                         <Button variant="contained" className={styles.incomeBtn} onClick={handleAddBalance}>
                         + Add Income
@@ -92,7 +100,7 @@ console.log("expensesbalance:", expensesbalance)
                     <PieChart/>
                     </CardContent>
                     </Card> */}
-                    <PieChart/>
+                    <PieChart netBalance = {netBalance}/>
                 </Grid>
             </Grid>
         </Box>
@@ -110,7 +118,7 @@ console.log("expensesbalance:", expensesbalance)
             p: 4,
           }}
         >
-          <AddExpenseForm />
+          <AddExpenseForm netBalance = {netBalance} onUpdate={() => setExpenseOpen(false)}/>
         </Box>
       </Modal>
       <Modal open={balanceopen} onClose={() => setBalanceOpen(false)}>
@@ -127,7 +135,7 @@ console.log("expensesbalance:", expensesbalance)
             p: 4,
           }}
         >
-          <AddBalanceForm />
+          <AddBalanceForm onUpdate={() => setBalanceOpen(false)}/>
         </Box>
       </Modal>
         

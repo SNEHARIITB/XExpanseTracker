@@ -24,7 +24,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
-// Helper function to group expenses by category
+
 const getCategoryData = (expenses) => {
   const categoryMap = {
     Food: 0,
@@ -34,14 +34,14 @@ const getCategoryData = (expenses) => {
 
   expenses.forEach((exp) => {
     if (Object.prototype.hasOwnProperty.call(categoryMap, exp.category)) {
-      categoryMap[exp.category] += parseFloat(exp.price); // make sure price is numeric
+      categoryMap[exp.category] += parseFloat(exp.price); 
     }
   });
 
   return Object.entries(categoryMap).map(([name, value]) => ({ name, value }));
 };
 
-const ExpensePieChart = () => {
+const ExpensePieChart = ({netBalance}) => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const ExpensePieChart = () => {
         console.error("Error parsing localStorage data:", err);
       }
     }
-  }, []); // only run once on mount
+  }, [netBalance]);
 
   return (
     <Box className={styles.container}>

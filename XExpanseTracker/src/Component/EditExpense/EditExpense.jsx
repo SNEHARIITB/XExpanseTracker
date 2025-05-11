@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   TextField,
@@ -10,42 +10,69 @@ import {
   FormControl,
 } from "@mui/material";
 
-const AddExpenseForm = ({onUpdate,netBalance}) => {
+const EditExpenseForm = ({onUpdate,netBalance,editid}) => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
   const [id, setId] = useState(Date.now());
 
-  const handleSubmit = () => {
-    if(netBalance < parseFloat(price)){
-      alert("You Cannot Expand Any More")
-      return;
+
+useEffect(() => {
+  if (!editid) return;
+
+  const existing = JSON.parse(localStorage.getItem("expenses")) || [];
+  const filtered = existing.find((e) => e.id === editid);
+  setTitle(filtered.title);
+    setPrice(filtered.price);
+    setCategory(filtered.category);
+    setDate(filtered.date);
+    setId(editid);
+
+
+}, [editid]);
+
+    const handleSubmit = () => {
+    if (netBalance < parseFloat(price)) {
+        alert("You Cannot Spend Any More");
+        return;
     }
+
     if (!title || !price || !category || !date) {
-      alert("Please fill all fields");
-      return;
+        alert("Please fill all fields");
+        return;
     }
 
     const newExpense = {
         id,
-      title,
-      price: parseFloat(price),
-      category,
-      date,
+        title,
+        price: parseFloat(price),
+        category,
+        date,
     };
 
-    const existing = JSON.parse(localStorage.getItem("expenses")) || [];
-    localStorage.setItem("expenses", JSON.stringify([...existing, newExpense]));
+    let existing = JSON.parse(localStorage.getItem("expenses")) || [];
+
+    if (editid) {
+        // Update existing expense
+        existing = existing.map((e) => (e.id === editid ? newExpense : e));
+    } else {
+        // Add new expense
+        existing.push(newExpense);
+    }
+
+    localStorage.setItem("expenses", JSON.stringify(existing));
+
+    onUpdate(); // Close modal or refresh view
 
     // Reset form
-    onUpdate();
     setId(Date.now());
     setTitle("");
     setPrice("");
     setCategory("");
     setDate("");
-  };
+    };
+
 
   return (
     <Box
@@ -126,4 +153,4 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
   );
 };
 
-export default AddExpenseForm;
+export default EditExpenseForm;

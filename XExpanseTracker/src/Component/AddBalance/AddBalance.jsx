@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import {
   Box,
   TextField,
@@ -10,16 +10,18 @@ import {
   FormControl,
 } from "@mui/material";
 
-const AddBalanceForm = () => {
+const AddBalanceForm = ({onUpdate}) => {
   const [balance, setBalance] = useState("");
+  //console.log("expensesbalance!!!:",expensesbalance)
 
   const handleSubmit = () => {
     if (!balance) {
         alert("Please fill all fields");
         return;
-      }
-    
-      const parsedBalance = parseFloat(balance);
+      }     
+      const localbalance = localStorage.getItem("balance") || 0;
+
+      const parsedBalance = parseFloat(balance) + parseFloat(localbalance);
     
       if (isNaN(parsedBalance)) {
         alert("Please enter a valid number");
@@ -28,8 +30,10 @@ const AddBalanceForm = () => {
     
       localStorage.setItem("balance", JSON.stringify(parsedBalance));
       setBalance("");
+      onUpdate()
 
   };
+  //useEffect(()=>handleSubmit,[]);
 
   return (
     <Box
@@ -54,6 +58,7 @@ const AddBalanceForm = () => {
         type="number"
         margin="normal"
         value={balance}
+        inputProps={{ min: 0 }}
         onChange={(e) => setBalance(e.target.value)}
       />
 
@@ -65,6 +70,7 @@ const AddBalanceForm = () => {
           variant="outlined"
           color="secondary"
           onClick={() => {
+            onUpdate();
             setBalance("");
 
           }}

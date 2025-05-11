@@ -84,19 +84,20 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
         onChange={(e) => setPrice(e.target.value)}
       />
 
-      <FormControl fullWidth margin="normal">
-        <InputLabel>Category</InputLabel>
-        <Select
-          name="category"
-          value={category}
-          label="Category"
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <MenuItem value="Food">Food</MenuItem>
-          <MenuItem value="Travel">Travel</MenuItem>
-          <MenuItem value="Entertainment">Entertainment</MenuItem>
-        </Select>
-      </FormControl>
+      <TextField
+        select
+        name="category"
+        label="Category"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        fullWidth
+        margin="normal"
+      >
+        <MenuItem value="Food">Food</MenuItem>
+        <MenuItem value="Travel">Travel</MenuItem>
+        <MenuItem value="Entertainment">Entertainment</MenuItem>
+      </TextField>
+
 
       <TextField
         name="date"

@@ -52,6 +52,7 @@ const AddBalanceForm = ({onUpdate}) => {
       </Typography>
 
       <TextField
+        name="Balance"
         label="Balance"
         variant="outlined"
         fullWidth

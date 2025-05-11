@@ -12,7 +12,7 @@ import AddBalanceForm from "../AddBalance/AddBalance";
 export default function Expanse({sendNetBalance,updateexpense}){
 
     const [expenseopen, setExpenseOpen] = useState(false);
-    const [walletBalance, setWalletBalance] = useState(5000);
+    const [walletBalance, setWalletBalance] = useState(0);
     const [balanceopen, setBalanceOpen] = useState(false);
     const [expensesbalance, setExpensesBalance] = useState(0);
     const [netBalance,setNetBalance] = useState(0);
@@ -25,7 +25,9 @@ export default function Expanse({sendNetBalance,updateexpense}){
     const handleAddBalance = () => {
         setBalanceOpen(true);
     }
-
+    useEffect(()=>{
+      localStorage.setItem("balance", JSON.stringify(5000));
+    },[]);
 
     useEffect(() => {
         const localbalance = localStorage.getItem("balance");

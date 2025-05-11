@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+.trackercontainer{
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 12px !important;
+}
+.expansetag{
+    font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    color: hsla(0, 0%, 100%, 1);
+}
+
+.income {
+    color: hsl(93, 100%, 51%);
+  }
+  
+  .expense {
+    color: hsl(48, 100%, 50%);
+  }
+  
+  .incomeBtn {
+    background-color: hsl(93, 100%, 51%) !important;
+    color: hsl(0, 0%, 0%) !important;
+    text-transform: none !important;
+  }
+  
+  .expenseBtn {
+    background-color: hsl(348, 100%, 55%) !important;
+    color: hsl(0, 0%, 100%) !important;
+    text-transform: none !important;
+  }
+
+
+.trackerbox{
+    background-color: hsla(0, 0%, 61%, 0.979);
+    /* height: 40vh !important; */
+    width: 100% !important;
+    padding: 1% 3%;
+    border-radius: 10px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: space-evenly;
+
+}
+.griditem3{
+display: flex;
+justify-content: center;
+align-items: center;
+} 
+
+.card{
+    /* width: 100%;*/
+    height: 181px; 
+    overflow:visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 15px !important;
+    background-color: hsla(98, 92%, 37%, 0.932) !important;
+    
+}

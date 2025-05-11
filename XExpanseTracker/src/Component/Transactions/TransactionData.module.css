@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+.headcontainer{
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    display: flex;
+    gap: 30px;
+}
+
+.headtag{
+    font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    color: hsla(0, 0%, 100%, 1);
+    font-style: italic;
+}
+.rtransactionsbox{
+    width: 60vw !important;
+}
+.texpansesbox{
+    width: 40vw !important;
+}
+.headbox{
+    background-color: hsla(0, 0%, 100%, 0.973);
+    height: 34vh !important;
+    /* width: 100% !important; */
+    border-radius: 10px;
+
+}
+@media screen  and (max-width: 640px) {
+    .headcontainer{
+        flex-direction: column;
+    }
+    .rtransactionsbox{
+        width: 100% !important;
+    }
+    .texpansesbox{
+        width: 100% !important;
+    }
+    .headbox{
+       
+        height: 39vh !important;
+    
+    }
+}

@@ -1,0 +1,20 @@
+.container{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    border-bottom: 1px solid grey;
+    box-shadow: none;
+
+}
+@media screen  and (max-width: 640px) {
+    .card{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1%;
+    }
+}

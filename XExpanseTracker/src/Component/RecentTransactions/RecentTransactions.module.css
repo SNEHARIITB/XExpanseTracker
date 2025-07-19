@@ -1,20 +1,40 @@
-.container{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
+.container {
+  /* padding: 16px; */
+  /* max-width: 600px; */
+  margin: auto;
 }
-.card{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1%;
-    border-bottom: 1px solid grey;
-    box-shadow: none;
 
+.card {
+  margin-bottom: 1px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  transition: box-shadow 0.3s;
 }
-@media screen  and (max-width: 640px) {
-    .card{
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1%;
-    }
+
+.card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.amount {
+  color: orange;
+  font-weight: 600;
+  font-size: 16px;
 }

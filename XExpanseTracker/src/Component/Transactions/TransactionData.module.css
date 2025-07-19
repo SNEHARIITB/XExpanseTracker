@@ -6,6 +6,8 @@
     padding: 12px !important;
     display: flex;
     gap: 30px;
+    background:var(--primary-bg-color);
+    padding:24px;
 }
 
 .headtag{
@@ -16,6 +18,7 @@
 }
 .rtransactionsbox{
     width: 60vw !important;
+    
 }
 .texpansesbox{
     width: 40vw !important;
@@ -24,6 +27,15 @@
     background-color: hsla(0, 0%, 100%, 0.973);
     height: 34vh !important;
     /* width: 100% !important; */
+    border-radius: 10px;
+    padding: 16px;
+    /* max-width: 600px; */
+    margin: auto;
+    max-height: 500px;        /* limit height */
+    overflow-y: auto;         /* allow vertical scroll */
+    overflow-x: hidden;
+    background-color: #fff;
+    border: 1px solid #ddd;
     border-radius: 10px;
 
 }

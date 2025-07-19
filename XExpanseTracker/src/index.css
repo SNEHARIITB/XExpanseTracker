@@ -1,3 +1,9 @@
 body{
     background-color:hsl(0, 0%, 19%);
 }
+:root {
+  --primary-bg-color: #3B3B3B;
+  --secondary-bg-color: #9B9B9B;
+  --font-heading: "Ubuntu", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+}

@@ -85,25 +85,18 @@ const AddExpenseForm = ({onUpdate,netBalance}) => {
       />
 
 <FormControl fullWidth margin="normal">
-  <InputLabel htmlFor="category">Category</InputLabel>
-  <select
-    name="category"
+  <InputLabel id="category-label">Category</InputLabel>
+  <Select
+    labelId="category-label"
     id="category"
     value={category}
+    label="Category"
     onChange={(e) => setCategory(e.target.value)}
-    style={{
-      padding: "10px",
-      borderRadius: "4px",
-      border: "1px solid rgba(0, 0, 0, 0.23)",
-      fontSize: "16px",
-      marginTop: "8px",
-    }}
   >
-    <option value="">Select Category</option>
-    <option value="Food">Food</option>
-    <option value="Travel">Travel</option>
-    <option value="Entertainment">Entertainment</option>
-  </select>
+    <MenuItem value="Food">Food</MenuItem>
+    <MenuItem value="Travel">Travel</MenuItem>
+    <MenuItem value="Entertainment">Entertainment</MenuItem>
+  </Select>
 </FormControl>
 
 
